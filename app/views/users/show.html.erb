@@ -1,0 +1,12 @@
+<h3>Name: <%= @user.name %></h3>
+
+<h3>Email: <%= @user.email %></h3>
+
+<h3>Products Reviewed:</h3>
+<ul>
+  <% @user.products.each do | product | %>
+    <li>
+      <a href = "/products/<%= product.id %>"><%= product.name %></a>
+    </li>
+  <% end %>
+</ul>
