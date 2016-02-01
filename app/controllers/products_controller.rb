@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-
+    @reviews = @product.reviews.sort_by{|r| r.created_at}.reverse
     if current_user
       @review = @product.reviews.build
     end
