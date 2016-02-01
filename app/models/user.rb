@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
 
 
   validates :name, presence: true
+  validates :email, uniqueness: true
 
   has_many :reviews
   has_many :products, through: :reviews

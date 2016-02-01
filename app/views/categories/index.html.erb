@@ -1,0 +1,13 @@
+<h1>All Categories</h1>
+
+<% @categories.each do |category| %>
+  <p>
+    <a href = "/categories/<%= category.id %>"><strong>Name: </strong><%= category.name %></a>
+  </p>
+  <p>
+    <strong>Descroption: </strong><%= category.description %>
+  </p>
+
+<% end %>
+
+<p><a href = "/categories/new">New Category</a></p>
