@@ -13,11 +13,13 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    @categories = Category.all
 
   end
 
   def edit
     @product = Product.find(params[:id])
+    @categories = Category.all
   end
 
   def create
@@ -50,7 +52,7 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:name, :description, :price_in_cents)
+    params.require(:product).permit(:name, :description, :price_in_cents, :category_id)
   end
 
 end

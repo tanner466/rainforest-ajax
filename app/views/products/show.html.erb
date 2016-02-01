@@ -8,6 +8,13 @@
 <p>
   <strong>Price:</strong> <%= @product.formatted_price %>
 </p>
+<p>
+  <strong>Category: </strong><% if @product.category %>
+  <%= @product.category.name %>
+  <% else %>
+  <%= "None" %>
+  <% end %>
+</p>
 
 <h3>Reviews</h3>
 

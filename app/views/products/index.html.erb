@@ -9,4 +9,11 @@
   <p>
     Price: <%= product.formatted_price %>
   </p>
+  <p>
+    Category: <% if product.category %>
+    <%= product.category.name %>
+    <% else %>
+    <%= "None" %>
+    <% end %>
+  </p>
 <% end %>
