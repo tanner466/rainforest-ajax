@@ -1,0 +1,16 @@
+<p>
+  <a href="/products/<%= product.id %>">Name: <%= product.name %></a>
+</p>
+<p>
+  Description: <%= product.description %>
+</p>
+<p>
+  Price: <%= product.formatted_price %>
+</p>
+<p>
+  Category: <% if product.category %>
+  <%= product.category.name %>
+  <% else %>
+  <%= "None" %>
+  <% end %>
+</p>

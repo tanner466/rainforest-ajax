@@ -1,21 +1,14 @@
 <h1>Products</h1>
-<% @products.each do |product| %>
 
-
-  <p>
-    <a href="/products/<%= product.id %>">Name: <%= product.name %></a>
-  </p>
-  <p>
-    Description: <%= product.description %>
-  </p>
-  <p>
-    Price: <%= product.formatted_price %>
-  </p>
-  <p>
-    Category: <% if product.category %>
-    <%= product.category.name %>
-    <% else %>
-    <%= "None" %>
-    <% end %>
-  </p>
+<%= form_tag products_path, method: :get, authentication: false, id: 'search-form' do %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "Search" %>
 <% end %>
+
+<div id="products">
+  <%= render @products %>
+</div>
+
+<!-- <script type = "text/javascript">
+
+</script> -->
