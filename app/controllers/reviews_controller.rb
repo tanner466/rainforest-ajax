@@ -10,11 +10,14 @@ class ReviewsController < ApplicationController
   def create
     @review = @product.reviews.build(review_params)
     @review.user = current_user
-
-    if @review.save
-      redirect_to products_path, notice: 'Review created successfully'
-    else
-      render 'products/show'
+    respond_to do | format |
+      if @review.save
+        format.html { redirect_to products_path, notice: 'Review created successfully' }
+        format.js{ @reviews = @product.reviews.sort_by{|r| r.created_at}.reverse }
+      else
+        format.html { render 'products/show', alert: "There was an error." }
+        format.js{ @reviews = @product.reviews.sort_by{|r| r.created_at}.reverse }
+      end
     end
 
   end
