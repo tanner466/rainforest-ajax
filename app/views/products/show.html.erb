@@ -47,10 +47,10 @@
 <script type="text/javascript">
   $(function() {
      $("#new_review")
-        .on('ajax:beforeSend', function() { // set this code to happen just before the ajax request is made
-          $("input[type='submit']") // make changes to the submit button
-            .val('Saving...') // change the text on the button
-            .attr('disabled', 'disabled'); // disable the button
+        .on('ajax:beforeSend', function() {
+          $("input[type='submit']")
+            .val('Saving...')
+            .attr('disabled', 'disabled'); 
         })
         .on('ajax:complete', function() {
           $("input[type='submit']")
